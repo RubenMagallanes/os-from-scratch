@@ -3,3 +3,5 @@ writing a basic operating system pretty much from scratch. instructions taken fr
 
 current stage: hello cafebabe. 
   OS loads 0xCAFEBABE into the EAX register, then loops infinitely.
+  
+  use command "$ bochs -qf bochsrc.txt" to boot OS.
