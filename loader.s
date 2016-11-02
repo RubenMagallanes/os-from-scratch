@@ -20,6 +20,9 @@ align 4							; code must be 4 byte aligned
 loader:							; loader label (defined as entry point in linker script)
 	mov eax, 0xCAFEBABE				; place number 0xCAFEBABE in register eax
 	mov esp, kernel_stack + KERNEL_STACK_SIZE	; point esp to start of stack (end of memory area)
+	mov word [0x000B8000], 0x4128			; write ascii 'A' to top left of screen
+	mov word ebx, [0x000b8000]			; copy value there to register
+
 .loop:
 	jmp .loop					;loop forever
 
