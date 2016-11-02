@@ -1,4 +1,5 @@
 bochslog.txt
+*.iso
 
 #object files
 *.o
