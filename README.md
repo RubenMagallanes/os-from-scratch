@@ -16,8 +16,12 @@ current stage: hello cafebabe.
       -input-charset utf8 -quiet -boot-info-table -o os.iso iso
 
   use command "$ bochs -qf bochsrc.txt" to boot OS.
+  
   bochs commands: 
+    
     s [number] step $number of cpu cycles through execution.
+    
     c continue execution
+    
     r print registers and contents
 
