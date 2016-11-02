@@ -17,11 +17,10 @@ current stage: hello cafebabe.
 
   use command "$ bochs -qf bochsrc.txt" to boot OS.
   
-  bochs commands: 
+  useful bochs commands: 
     
     s [number] step $number of cpu cycles through execution.
     
     c continue execution
-    
     r print registers and contents
 
