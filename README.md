@@ -23,4 +23,4 @@ current stage: hello cafebabe.
     
     c continue execution
     r print registers and contents
-    x dump memory - use "x /[n]hx 0x000B8000" to view 'n' framebuffer characters
+    x dump memory - use "x /[n]hx 0x000B8000" to view 'n' framebuffer characters, /nbx to seperate by bytes, and /nbt to view in binary
