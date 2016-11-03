@@ -28,9 +28,10 @@ void fb_write_cell (unsigned int i, char c, unsigned char fg, unsigned char bg)
 }
 int kmain () 
 {	
-	fb_write_cell (0, 'A', FB_GREEN, FB_DARK_GREY);
-	fb_write_cell (1, 'A', FB_GREEN, FB_DARK_GREY);
-	fb_write_cell (2, 'A', FB_GREEN, FB_DARK_GREY);
+	fb_write_cell (0, 'A', FB_LIGHT_GREY, FB_BLACK);
+	fb_write_cell (1, 'A', FB_LIGHT_GREY, FB_BLACK);
+	fb_write_cell (2, 'A', FB_LIGHT_GREY, FB_BLACK);
+	fb_write_cell (3, 'A', FB_LIGHT_GREY, FB_BLACK);
 	return 0;
 }
 
