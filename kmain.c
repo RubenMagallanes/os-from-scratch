@@ -23,18 +23,31 @@ char *fb = (char *) 0x000B8000; // starting address of framebuffer
  */
 void fb_write_cell (unsigned int i, char c, unsigned char fg, unsigned char bg)
 {
-	fb[i + 1] = c;
+	unsigned int loc = 2*i;
+	fb[loc] = c;
 
 	//just insert character there, not color 
-	fb[i+20] = ((bg & 0x0f) << 4) | (fg & 0x0f);
+	fb[loc+1] = ((bg & 0x0f) << 4) | (fg & 0x0f);
 
 }
+/** fb_clear_all:
+ *  clears entire framebuffer by filling it with spaces 
+ *  
+ *  @param bg color to set framebufer to
+ */
+//void fb_clear_all(unsigned char bg)
+//{
+	
+//}
+
+
 int kmain () 
-{	
-	fb_write_cell (0, 'A', FB_LIGHT_GREY, FB_BLACK);
-	//fb_write_cell (1, 'A', FB_LIGHT_GREY, FB_BLACK);
-	//fb_write_cell (2, 'A', FB_LIGHT_GREY, FB_BLACK);
-	//fb_write_cell (3, 'A', FB_LIGHT_GREY, FB_BLACK);
+{
+	fb_write_cell (0, 'A', FB_GREEN, FB_BLACK);
+	//fb_write_cell (80, 'A', FB_GREEN, FB_BLACK);
+	fb_write_cell (1999, 'A', FB_GREEN, FB_BLACK);
+	fb_write_cell (1920, 'A', FB_GREEN, FB_BLACK);
+	fb_write_cell (79, 'A', FB_GREEN, FB_BLACK);
 	return 0;
 }
 

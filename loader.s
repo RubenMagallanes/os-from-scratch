@@ -18,7 +18,7 @@ align 4							; code must be 4 byte aligned
 	dd CHECKSUM					; and the checksum
 
 loader:							; loader label (defined as entry point in linker script)
-	mov	eax, 0xCAFEBABE				; place number 0xCAFEBABE in register eax
+	;mov	eax, 0xCAFEBABE				; place number 0xCAFEBABE in register eax
 	mov	esp, kernel_stack + KERNEL_STACK_SIZE	; point esp to start of stack (end of memory area)
 	
 	extern	kmain
@@ -31,9 +31,9 @@ loader:							; loader label (defined as entry point in linker script)
 	mov	esp, ebp				;takedown stack frame
 	pop	ebp					;same as 'leave' op
 	
-	;mov word [0x000B8000], 0x8241			; write ascii 'A', green on grey bg to top left of screen
-	;mov word ebx, [0x000b8000]			; copy value there to register
+	;mov word [0x000B8000], 0x0741			; write ascii 'A', green on grey bg to top left of screen
 
 .loop:
+	mov	eax, 0xCAFEBABE				; place 0xCAFEBABE in eax register
 	jmp .loop					;loop forever
 
