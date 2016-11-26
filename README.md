@@ -2,10 +2,14 @@
 writing a basic operating system pretty much from scratch. instructions taken from littleosbook
 
 
-current stage: hello cafebabe. 
+current stage: Pretty Colors 
 
-
-  OS loads 0xCAFEBABE into the EAX register, then loops infinitely.
+  OS sets up a stack so C code can be called. 
+  A main function is called, then the OS loops indefinitely. 
+  The main function 'kmain' currently prints a green 'A' character in each corner of
+  the screen, then exits. 
+  
+  The following commands are run from the makefile when "$ make run" is executed. 
   
   compile loader.s into 32 bit ELF with: $ nasm -f elf32 loader.s
 
