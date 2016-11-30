@@ -49,41 +49,32 @@ void fb_clear_all(unsigned char bg)
 		fb_write_cell (i, ' ', FB_WHITE, bg);
 	}
 }
-void colortest()
+/**
+ * draws char at specified location (x, y) where the top left of the fb is (0, 0)
+ * 0 <= x < 80
+ * 0 <= y < 25
+ */
+void fb_write_char_at  (int x, int y, char c, unsigned char fg, unsigned char bg)
 {
-	fb_write_cell (161, 'c', FB_LIGHT_GREY, FB_BLACK);
-	fb_write_cell (162, 'o', FB_LIGHT_GREY, FB_BLACK);
-	fb_write_cell (163, 'l', FB_LIGHT_GREY, FB_BLACK);
-	fb_write_cell (164, 't', FB_LIGHT_GREY, FB_BLACK);
-	fb_write_cell (165, 'e', FB_LIGHT_GREY, FB_BLACK);
-	fb_write_cell (166, 's', FB_LIGHT_GREY, FB_BLACK);
-	fb_write_cell (167, 't', FB_LIGHT_GREY, FB_BLACK);
-
-	//foreground		
-	unsigned int col; 
-	for(col = 0; col < 16; col++)
-	{
-		fb_write_cell(col, 'A', col, FB_BLACK);
-	}
-	//background		
-	 
-	for(col = 0; col < 16; col++)
-	{
-		fb_write_cell(col+ 16, 'A', FB_BLACK, col);
-	}	
+	if (x < 0 || x >= FB_WIDTH || y < 0 || y >= FB_HEIGHT)
+		return; 
+	
+	unsigned int pos = y* FB_WIDTH + x;
+	fb_write_cell (pos, c, fg, bg);
 }
+
 void corners()
 {
-	fb_write_cell (0, '#', FB_GREEN, FB_BLACK);
-	fb_write_cell (79, '#', FB_GREEN, FB_BLACK);
-	fb_write_cell (1920, '#', FB_GREEN, FB_BLACK);
-	fb_write_cell (1999, '#', FB_GREEN, FB_BLACK);
+	fb_write_char_at (0, 0, '#', FB_LIGHT_BLUE, FB_BLACK);
+	fb_write_char_at (79, 0, '#', FB_LIGHT_BLUE, FB_BLACK);
+	fb_write_char_at (0, 24, '#', FB_LIGHT_BLUE, FB_BLACK);
+	fb_write_char_at (79, 24, '#', FB_LIGHT_BLUE, FB_BLACK);
 }
 int kmain () 
 {
 	fb_clear_all(FB_BLACK);	
 	corners();
-	//colortest();
+
 	
 	return 0;
 }
